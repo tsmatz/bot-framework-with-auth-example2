@@ -9,18 +9,18 @@ Thanks,
 
 ///// Step for the setup
 
-1.Register your bot (Bot Channel Registraiton) in Azure Bot Service.
-  - Copy your bot id (bot handle), app id, and app password (secret).
+1.Register your bot (as "Bot Channel Registration") in Azure Bot Service.
   - Set https://{your demo bot}/api/messages as messaging endpoint (webhook url).
+  - After you've registered, copy your bot id (bot handle), app id, and app password (secret).
 
 2.Fill your "BotId", "MicrosoftAppId", and "MicrosoftAppPassword" in AuthDemoBot2\Web.config.
 
 3.Login to Azure Portal (https://portal.azure.com/) with Office 365 administrator account. (You need your organization account.)
-  Go to Azure Active Directory (Azure AD) management, and register your application.
+  Go to Azure Active Directory (Azure AD) management, and register new application.
   - Application type must be "Web app / API"
-  - Copy app id (client id)
+  - After you've registered, copy application id (client id)
   - Create key (client secret) and copy that value
-  - Register "https://{your demo bot}/*" as Reply URLs.
+  - Add "https://{your demo bot}/*" in Reply URLs.
   - Set "Read user mail" (Mail.Read) in "Office 365 Exchange Online" as required permissions
   - Select "Yes" on "Multi-tenanted" setting
 
@@ -28,4 +28,4 @@ Thanks,
 
 6.Fill https://{your demo bot}/api/callback as "OAuthCallbackUrl" in AuthDemoBot\Web.config.
 
-7.Host your bot (https://{your demo bot}) in public internet.
+7.Host AuthDemoBot2 web app (https://{your demo bot}) in public internet. (You can easily publish in Azure App Service with Visual Studio.)

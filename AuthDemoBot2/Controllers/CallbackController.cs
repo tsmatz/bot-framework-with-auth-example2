@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -65,8 +66,10 @@ namespace AuthDemoBot2
                 await dataStore.FlushAsync(address, CancellationToken.None);
             }
 
-            return Request.CreateResponse(
-                "Succeed ! You can close this window !");
+            var response = new HttpResponseMessage();
+            response.Content = new StringContent("<html><body>Succeed ! You can close this window !</body></html>");
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            return response;
         }
     }
 }
